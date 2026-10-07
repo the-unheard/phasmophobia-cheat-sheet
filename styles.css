@@ -225,7 +225,7 @@ aside {
   .evidence-row[data-state="1"] .custom-box::after, .evidence-row[data-state="2"] .custom-box::after, .speed-row[data-state="1"] .custom-box::after, .speed-row[data-state="2"] .custom-box::after, .behavior-row[data-state="1"] .custom-box::after, .behavior-row[data-state="2"] .custom-box::after {
     font-size: 9px;
     left: 0;
-    top: 0;
+    top: 2px;
   }
   #ghosts {
     padding: 8px;
