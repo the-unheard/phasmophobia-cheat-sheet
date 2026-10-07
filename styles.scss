@@ -18,15 +18,6 @@ main {
   overflow: hidden;
 }
 
-aside {
-  width: 25%;
-  min-width: 260px;
-  height: 100%;
-  overflow-y: auto;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-  flex-shrink: 0;
-}
-
 // Ghost Cards Grid Area
 #ghosts {
   flex-grow: 1;
@@ -34,7 +25,8 @@ aside {
   padding: 20px;
   overflow-y: auto;
   display: grid;
-  grid-template-columns: repeat(4, minmax(280px, 1fr));
+  // Use autofit/autofill cleanly, dropping minmax size slightly on smaller screens via media queries if needed
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 15px;
   align-content: start;
 
@@ -56,7 +48,7 @@ aside {
       filter: grayscale(80%);
 
       &:hover {
-        opacity: 0.5; // Slightly reveal if they mouse over it again
+        opacity: 0.5;
       }
     }
 
@@ -100,27 +92,13 @@ aside {
         color: #b0b3c6;
         border: 1px solid #36384e;
 
-        &.ev-emf5{
-          color: #ca2455;
-        }
-        &.ev-ultraviolet{
-          color: #a340e1;
-        }
-        &.ev-ghostwriting{
-          color: #ff6a00;
-        }
-        &.ev-freezing {
-          color: #3abcc1;
-        }
-        &.ev-dots{
-          color: #11b300;
-        }
-        &.ev-ghostorbs{
-          color: #cdc79b;
-        }
-        &.ev-spiritbox{
-          color: #d83bb3;
-        }
+        &.ev-emf5{ color: #ca2455; }
+        &.ev-ultraviolet{ color: #a340e1; }
+        &.ev-ghostwriting{ color: #ff6a00; }
+        &.ev-freezing { color: #3abcc1; }
+        &.ev-dots{ color: #11b300; }
+        &.ev-ghostorbs{ color: #cdc79b; }
+        &.ev-spiritbox{ color: #d83bb3; }
       }
     }
 
@@ -150,10 +128,13 @@ aside {
 }
 
 aside {
-  width: 13%;
-  min-width: 250px;
+  width: 22%;
+  min-width: 240px;
+  max-width: 260px;
   height: 100%;
   box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  flex-shrink: 0;
 }
 
 #filters {
@@ -206,7 +187,6 @@ aside {
     background-color: #222;
   }
 
-  // State 1: Checked (Applies to Evidence, Speed, and Behavior)
   &[data-state="1"] {
     .custom-box::after {
       content: "✓";
@@ -217,7 +197,6 @@ aside {
     }
   }
 
-  // State 2: Crossed (Mainly for Evidence tri-state)
   &[data-state="2"] {
     .custom-box::after {
       content: "✕";
@@ -229,6 +208,76 @@ aside {
 
     span {
       text-decoration: line-through;
+    }
+  }
+}
+
+// ==========================================
+// MOBILE RESPONSIVE OVERRIDES (Small Screens)
+// ==========================================
+@media (max-width: 768px) {
+  aside {
+    width: 38%;          // Keeps it on the left, takes up less than half the screen
+    min-width: 150px;    // Shrinks the hard minimum so it fits narrow phone screens
+    padding: 4px;
+  }
+
+  #filters {
+    padding: 5px;
+
+    h5 {
+      font-size: 13px;   // Scales down section headers on mobile
+      margin: 6px 0;
+    }
+
+    section > div {
+      padding: 6px;      // Shrinks inner padding of the filter boxes
+      border-radius: 6px;
+    }
+  }
+
+  .evidence-row, .speed-row, .behavior-row {
+    label {
+      font-size: 11px;    // Shrinks the filter text labels on mobile
+      gap: 5px;
+      padding-bottom: 6px;
+    }
+
+    .custom-box {
+      width: 13px;       // Shrinks checkboxes to match small text
+      height: 13px;
+      border-width: 1.5px;
+      border-radius: 3px;
+    }
+
+    &[data-state="1"] .custom-box::after,
+    &[data-state="2"] .custom-box::after {
+      font-size: 10px;
+      left: 0;
+      top: -2px;
+    }
+  }
+
+  #ghosts {
+    padding: 10px;
+    gap: 10px;
+
+    .ghost-card {
+      padding: 10px;
+
+      .ghost-header h3 {
+        font-size: 16px; // Smaller card titles
+      }
+
+      .ghost-evidences .ev-badge {
+        font-size: 10px;
+        padding: 2px 5px;
+      }
+
+      .ghost-speeds-val,
+      .ghost-tells {
+        font-size: 11px;
+      }
     }
   }
 }

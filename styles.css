@@ -17,22 +17,13 @@ main {
   overflow: hidden;
 }
 
-aside {
-  width: 25%;
-  min-width: 260px;
-  height: 100%;
-  overflow-y: auto;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-  flex-shrink: 0;
-}
-
 #ghosts {
   flex-grow: 1;
   background: #111;
   padding: 20px;
   overflow-y: auto;
   display: grid;
-  grid-template-columns: repeat(4, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 15px;
   align-content: start;
 }
@@ -135,10 +126,13 @@ aside {
 }
 
 aside {
-  width: 13%;
-  min-width: 250px;
+  width: 22%;
+  min-width: 240px;
+  max-width: 260px;
   height: 100%;
   box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  flex-shrink: 0;
 }
 
 #filters {
@@ -198,6 +192,59 @@ aside {
 }
 .evidence-row[data-state="2"] span, .speed-row[data-state="2"] span, .behavior-row[data-state="2"] span {
   text-decoration: line-through;
+}
+
+@media (max-width: 768px) {
+  aside {
+    width: 38%;
+    min-width: 150px;
+    padding: 4px;
+  }
+  #filters {
+    padding: 5px;
+  }
+  #filters h5 {
+    font-size: 13px;
+    margin: 6px 0;
+  }
+  #filters section > div {
+    padding: 6px;
+    border-radius: 6px;
+  }
+  .evidence-row label, .speed-row label, .behavior-row label {
+    font-size: 11px;
+    gap: 5px;
+    padding-bottom: 6px;
+  }
+  .evidence-row .custom-box, .speed-row .custom-box, .behavior-row .custom-box {
+    width: 13px;
+    height: 13px;
+    border-width: 1.5px;
+    border-radius: 3px;
+  }
+  .evidence-row[data-state="1"] .custom-box::after, .evidence-row[data-state="2"] .custom-box::after, .speed-row[data-state="1"] .custom-box::after, .speed-row[data-state="2"] .custom-box::after, .behavior-row[data-state="1"] .custom-box::after, .behavior-row[data-state="2"] .custom-box::after {
+    font-size: 10px;
+    left: 0;
+    top: -2px;
+  }
+  #ghosts {
+    padding: 10px;
+    gap: 10px;
+  }
+  #ghosts .ghost-card {
+    padding: 10px;
+  }
+  #ghosts .ghost-card .ghost-header h3 {
+    font-size: 16px;
+  }
+  #ghosts .ghost-card .ghost-evidences .ev-badge {
+    font-size: 10px;
+    padding: 2px 5px;
+  }
+  #ghosts .ghost-card .ghost-speeds-val,
+  #ghosts .ghost-card .ghost-tells {
+    font-size: 11px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
