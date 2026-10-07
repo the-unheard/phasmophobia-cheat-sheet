@@ -217,66 +217,68 @@ aside {
 // ==========================================
 @media (max-width: 768px) {
   aside {
-    width: 38%;          // Keeps it on the left, takes up less than half the screen
-    min-width: 150px;    // Shrinks the hard minimum so it fits narrow phone screens
-    padding: 4px;
+    width: 35%;          // Slightly slimmer to give more room to cards
+    min-width: 130px;    // Lower minimum width so it doesn't crowd phones
+    padding: 2px;
   }
 
   #filters {
-    padding: 5px;
+    padding: 4px;
 
     h5 {
-      font-size: 13px;   // Scales down section headers on mobile
-      margin: 6px 0;
+      font-size: 12px;
+      margin: 4px 0;
     }
 
     section > div {
-      padding: 6px;      // Shrinks inner padding of the filter boxes
-      border-radius: 6px;
+      padding: 4px;
+      border-radius: 4px;
     }
   }
 
   .evidence-row, .speed-row, .behavior-row {
     label {
-      font-size: 11px;    // Shrinks the filter text labels on mobile
-      gap: 5px;
-      padding-bottom: 6px;
+      font-size: 10px;
+      gap: 4px;
+      padding-bottom: 4px;
     }
 
     .custom-box {
-      width: 13px;       // Shrinks checkboxes to match small text
-      height: 13px;
-      border-width: 1.5px;
-      border-radius: 3px;
+      width: 12px;
+      height: 12px;
+      border-width: 1px;
+      border-radius: 2px;
     }
 
     &[data-state="1"] .custom-box::after,
     &[data-state="2"] .custom-box::after {
-      font-size: 10px;
+      font-size: 9px;
       left: 0;
-      top: -2px;
+      top: -3px;
     }
   }
 
   #ghosts {
-    padding: 10px;
-    gap: 10px;
+    padding: 8px;
+    gap: 8px;
+    grid-template-columns: 1fr; // Forces a clean single-column fit on the right side!
 
     .ghost-card {
-      padding: 10px;
+      padding: 8px;
+      gap: 6px;
 
       .ghost-header h3 {
-        font-size: 16px; // Smaller card titles
+        font-size: 15px;
       }
 
       .ghost-evidences .ev-badge {
         font-size: 10px;
-        padding: 2px 5px;
+        padding: 2px 4px;
       }
 
       .ghost-speeds-val,
       .ghost-tells {
-        font-size: 11px;
+        font-size: 10px;
       }
     }
   }
