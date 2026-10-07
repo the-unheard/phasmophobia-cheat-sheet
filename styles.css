@@ -1,0 +1,203 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap");
+html {
+  background: #333;
+  font-family: "Chelsea Market", serif;
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+aside {
+  width: 25%;
+  min-width: 260px;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+#ghosts {
+  flex-grow: 1;
+  background: #111;
+  padding: 20px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(280px, 1fr));
+  gap: 15px;
+  align-content: start;
+}
+#ghosts .ghost-card {
+  background: #2a2b3d;
+  border-radius: 8px;
+  padding: 15px;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  border: 1px solid #3f415c;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+#ghosts .ghost-card.dismissed {
+  opacity: 0.25;
+  filter: grayscale(80%);
+}
+#ghosts .ghost-card.dismissed:hover {
+  opacity: 0.5;
+}
+#ghosts .ghost-card .ghost-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#ghosts .ghost-card .ghost-header h3 {
+  margin: 0;
+  font-size: 22px;
+  color: #e0e0e0;
+}
+#ghosts .ghost-card .ghost-header .ghost-close-btn {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+#ghosts .ghost-card .ghost-header .ghost-close-btn:hover {
+  background: #f44336;
+  color: #fff;
+}
+#ghosts .ghost-card .ghost-evidences {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+#ghosts .ghost-card .ghost-evidences .ev-badge {
+  background: #1b1c28;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #b0b3c6;
+  border: 1px solid #36384e;
+}
+#ghosts .ghost-card .ghost-evidences .ev-badge.ev-emf5 {
+  color: #ca2455;
+}
+#ghosts .ghost-card .ghost-evidences .ev-badge.ev-ultraviolet {
+  color: #a340e1;
+}
+#ghosts .ghost-card .ghost-evidences .ev-badge.ev-ghostwriting {
+  color: #ff6a00;
+}
+#ghosts .ghost-card .ghost-evidences .ev-badge.ev-freezing {
+  color: #3abcc1;
+}
+#ghosts .ghost-card .ghost-evidences .ev-badge.ev-dots {
+  color: #11b300;
+}
+#ghosts .ghost-card .ghost-evidences .ev-badge.ev-ghostorbs {
+  color: #cdc79b;
+}
+#ghosts .ghost-card .ghost-evidences .ev-badge.ev-spiritbox {
+  color: #d83bb3;
+}
+#ghosts .ghost-card .ghost-speeds-val {
+  font-size: 13px;
+  color: #9da0b8;
+}
+#ghosts .ghost-card .ghost-tells {
+  background: #1e1f2b;
+  padding: 8px;
+  border-radius: 6px;
+  max-height: 80px;
+  overflow-y: auto;
+  font-size: 13px;
+  color: #ccc;
+  border: 1px solid #323447;
+}
+#ghosts .ghost-card .ghost-tells p {
+  margin: 0 0 6px 0;
+}
+#ghosts .ghost-card .ghost-tells p:last-child {
+  margin-bottom: 0;
+}
+
+aside {
+  width: 13%;
+  min-width: 140px;
+  height: 100%;
+  box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+#filters {
+  background: #313248;
+  padding: 10px;
+  margin: 0;
+}
+#filters h5 {
+  font-size: 20px;
+  font-weight: normal;
+  color: #fff;
+  margin: 10px 0 10px 0;
+}
+#filters section:first-child h5 {
+  margin-top: 0;
+}
+#filters section > div {
+  background: #242536;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.3) inset;
+}
+
+.evidence-row label, .speed-row label, .behavior-row label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  color: #fff;
+  font-size: 17px;
+  padding-bottom: 10px;
+}
+.evidence-row .custom-box, .speed-row .custom-box, .behavior-row .custom-box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+}
+.evidence-row[data-state="1"] .custom-box::after, .speed-row[data-state="1"] .custom-box::after, .behavior-row[data-state="1"] .custom-box::after {
+  content: "✓";
+  color: #4caf50;
+  position: relative;
+  left: 1px;
+  top: -1px;
+}
+.evidence-row[data-state="2"] .custom-box::after, .speed-row[data-state="2"] .custom-box::after, .behavior-row[data-state="2"] .custom-box::after {
+  content: "✕";
+  color: #f44336;
+  position: relative;
+  left: 1px;
+  top: -1px;
+}
+.evidence-row[data-state="2"] span, .speed-row[data-state="2"] span, .behavior-row[data-state="2"] span {
+  text-decoration: line-through;
+}
+
+/*# sourceMappingURL=styles.css.map */
