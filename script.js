@@ -92,7 +92,7 @@ const ghostData = [
         speeds: ["Slow", "Normal", "Fast"],
         speedVals: ["1.36", "1.7", "3.0"],
         cannotDo: [],
-        tells: ["Normal > Enraged (if items are used) > Weakened (after hunt) > Normal (If items are used again)"]
+        tells: ["Normal > Enraged (item usage) >", "Weakened (after hunt) > Normal (item usage)"]
     },
     {
         name: "Goryo",
@@ -162,7 +162,7 @@ const ghostData = [
         speeds: ["Normal"],
         speedVals: ["1.7"],
         cannotDo: [],
-        tells: ["Makes two paranormal sounds in under 80s.", "Can't be heard more than 12m away during hunts."]
+        tells: ["Makes two paranormal sounds in under 80s.", "Can't be heard 12m+ away during hunts."]
     },
     {
         name: "Obake",
@@ -172,7 +172,7 @@ const ghostData = [
         speeds: ["Normal"],
         speedVals: ["1.7"],
         cannotDo: [],
-        tells: ["Guaranteed Ultraviolet. Changes model mid-hunt.", "Chance to hide UV. Chance to show 6 fingerprints."]
+        tells: ["Guaranteed Ultraviolet. Changes model mid-hunt.", "Chance to hide UV or show 6 fingerprints."]
     },
     {
         name: "Obambo",
