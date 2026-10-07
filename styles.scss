@@ -253,8 +253,10 @@ aside {
     &[data-state="2"] .custom-box::after {
       font-size: 9px;
       left: 0;
-      top: -3px;
+      top: 0;
     }
+
+
   }
 
   #ghosts {
