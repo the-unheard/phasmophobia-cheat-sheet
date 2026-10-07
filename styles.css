@@ -180,15 +180,17 @@ aside {
   content: "✓";
   color: #4caf50;
   position: relative;
-  left: 1px;
+  left: 0;
   top: -1px;
+  font-weight: bold;
 }
 .evidence-row[data-state="2"] .custom-box::after, .speed-row[data-state="2"] .custom-box::after, .behavior-row[data-state="2"] .custom-box::after {
   content: "✕";
   color: #f44336;
   position: relative;
-  left: 1px;
+  left: 0;
   top: -1px;
+  font-weight: bold;
 }
 .evidence-row[data-state="2"] span, .speed-row[data-state="2"] span, .behavior-row[data-state="2"] span {
   text-decoration: line-through;
@@ -224,8 +226,9 @@ aside {
   }
   .evidence-row[data-state="1"] .custom-box::after, .evidence-row[data-state="2"] .custom-box::after, .speed-row[data-state="1"] .custom-box::after, .speed-row[data-state="2"] .custom-box::after, .behavior-row[data-state="1"] .custom-box::after, .behavior-row[data-state="2"] .custom-box::after {
     font-size: 9px;
-    left: 0;
-    top: 0;
+    left: -1px;
+    top: -1px;
+    font-weight: bold;
   }
   #ghosts {
     padding: 8px;

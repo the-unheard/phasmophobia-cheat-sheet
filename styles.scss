@@ -191,8 +191,9 @@ aside {
       content: "✓";
       color: #4caf50;
       position: relative;
-      left: 1px;
+      left: 0;
       top: -1px;
+      font-weight: bold;
     }
   }
 
@@ -201,8 +202,9 @@ aside {
       content: "✕";
       color: #f44336;
       position: relative;
-      left: 1px;
+      left: 0;
       top: -1px;
+      font-weight: bold;
     }
 
     span {
@@ -252,8 +254,9 @@ aside {
     &[data-state="1"] .custom-box::after,
     &[data-state="2"] .custom-box::after {
       font-size: 9px;
-      left: 0;
-      top: 0;
+      left: -1px;
+      top: -1px;
+      font-weight: bold;
     }
 
 
